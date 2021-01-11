@@ -21,7 +21,7 @@ Then open a browser, go to [127.0.0.1:8000/](http://127.0.0.1:8000/)
 
 ## Train Model 
 
-When open the webpage at the first time, it shows as Untrained. 
+When open the webpage at the first time, it shows the model status as untrained. 
 
 ![untrained](img/untrained.png)
 
