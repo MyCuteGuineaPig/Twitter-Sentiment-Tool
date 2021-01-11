@@ -1,13 +1,6 @@
 # Twitter-Sentiment-Tool
 
-[![PyPI
-version](https://badge.fury.io/py/trax.svg)](https://badge.fury.io/py/trax)
-
-[![License](https://img.shields.io/badge/License-Apache%202.0-brightgreen.svg)](https://opensource.org/licenses/Apache-2.0)
-
-
-[django](https://github.com/django/django)
-[trax](https://github.com/google/trax)
+The model consists of Embedding layer, Mean layer, Fully-connected layer and LogSoftmax layer. Data is from [nltk.corpus.twitter_samples](https://www.nltk.org/howto/corpus.html). User can adjust train validation ratio and training steps, and make prediction after model finish training
 
 ## Initialize environment 
 
