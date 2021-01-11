@@ -20,6 +20,7 @@ from nltk.tokenize import TweetTokenizer
 from nltk.corpus import stopwords, twitter_samples
 from nltk.stem import PorterStemmer
 import os
+import json
 
 class NLPClass:
     def __init__(self):
@@ -38,6 +39,13 @@ class NLPClass:
         self.stopwords_english = stopwords.words("english")
         self.vocab = None
         self.model = None
+        if ( os.path.isfile(self.dir+'/dictionary.json')) and os.path.isfile(self.dir+'/model.pkl.gz'):
+            with open(self.dir+'/dictionary.json', 'r') as fp:
+                self.vocab = json.load(fp)
+            self.model = self.classifier()
+            self.model.init_from_file(self.dir+'/model.pkl.gz')
+
+
 
     def load_tweets(self):
         all_positive_tweets = twitter_samples.strings("positive_tweets.json")
@@ -79,7 +87,8 @@ class NLPClass:
             for word in tweet_clean:
                 if word not in Vocab:
                     Vocab[word] = len(Vocab)
-        print("total length of vocabulary",len(Vocab))
+        with open('dictionary.json', 'w') as fp:
+            json.dump(Vocab, fp, indent=4)
         return Vocab
 
     def tweet_to_tensor(self,tweet, vocab, unk_token='__UNK__'):
