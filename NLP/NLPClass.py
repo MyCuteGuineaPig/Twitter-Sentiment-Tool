@@ -87,7 +87,7 @@ class NLPClass:
             for word in tweet_clean:
                 if word not in Vocab:
                     Vocab[word] = len(Vocab)
-        with open('dictionary.json', 'w') as fp:
+        with open(self.dir+'/dictionary.json', 'w') as fp:
             json.dump(Vocab, fp, indent=4)
         return Vocab
 
@@ -173,13 +173,12 @@ class NLPClass:
 
 
     def training(self,steps, ratio):
-
-        if os.path.isfile('metric.txt'):
-            os.remove("metric.txt")
-        if os.path.isfile('finish.txt'):
-            os.remove("finish.txt")
-        if os.path.isfile('model.pkl.gz'):
-            os.remove("model.pkl.gz")
+        if os.path.isfile(self.dir+'/metrics.txt'):
+            os.remove(self.dir+"/metrics.txt")
+        if os.path.isfile(self.dir+'/finish.txt'):
+            os.remove(self.dir+"/finish.txt")
+        if os.path.isfile(self.dir+'/model.pkl.gz'):
+            os.remove(self.dir+"/model.pkl.gz")
 
         all_positive_tweets,all_negative_tweets = self.load_tweets()
         

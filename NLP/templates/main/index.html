@@ -116,10 +116,14 @@ if (steps != '') {
 var myEl = document.getElementById('trainButton');
 
 myEl.addEventListener('click', function() {
+    var steps = $('#trainSteps').val();
+
     $('#staticBackdrop').modal('show');
+    $('.progress-bar').css('width', '0%').attr('aria-valuenow', 0);
+
     $(".progress-bar").animate({
         width: "100%"
-    }, 120000);
+    }, 370*steps);
     $.ajax({
         type:'POST',
         timeout: 0,
@@ -141,12 +145,13 @@ myEl.addEventListener('click', function() {
                           </div>\
                           <p class='box-title'>Status: Trained</p>\
                         </div>");
-
+            $(".progress-bar").stop();
                         
         },
         error: function(XMLHttpRequest, textStatus, errorThrown) { 
             alert("Status: " + textStatus); alert("Error: " + errorThrown); 
             $('#staticBackdrop').modal('hide');
+            $(".progress-bar").stop();
         }   
 
     });

@@ -74,20 +74,20 @@ def readFinishConfig():
 
 def train(request):
     if request.method == "POST":
-        steps = request.POST['steps']
-        ratio = request.POST['ratio']
+        steps = int(request.POST['steps'])
+        ratio = float(request.POST['ratio'])
 
 
         with open(dirname+"/trainingconfig.txt",'w') as f:
             f.write('steps='+str(steps)+'\n')
             f.write('ratio='+str(ratio)+'\n')
 
-        vocab_size, train_size, val_size = nlp.training(steps= 100, ratio=0.9)
+        vocab_size, train_size, val_size = nlp.training(steps= steps, ratio=ratio)
         #vocab_size, train_size, val_size =  100,100,100 #For debug
 
         
         if not os.path.isfile(dirname+'/metrics.txt') :
-            print("Error")
+            print("Error not generate metrics")
             messages.error(request, "Metrics file not generated. Error for training")
         else:
             steps, trainloss, evalLoss, evalAccuracy = ReadMetrics()
