@@ -1,9 +1,9 @@
 # Twitter-Sentiment-Tool
 
-![django](https://github.com/django/django)
-![trax](https://github.com/google/trax)
+[django](https://github.com/django/django)
+[trax](https://github.com/google/trax)
 
-#### 1 Initialize environment 
+## Initialize environment 
 
 
 ```
@@ -17,9 +17,9 @@ Above scirpt does the following steps:
 - activate virtual environment
 - start Django server on local computer
 
-Then open a browser, go to ![127.0.0.1:8000/](http://127.0.0.1:8000/]
+Then open a browser, go to [127.0.0.1:8000/](http://127.0.0.1:8000/]
 
-#### Train Model 
+## Train Model 
 
 When open the webpage at the first time, it shows as Untrained. 
 
@@ -35,7 +35,7 @@ After training, charts, traing size, validation size, vocabulary size, and statu
 ![untrained](img/trained.png)
 
 
-#### Make Prediction
+## Make Prediction
 
 After training the model, can input text and click to predict as follow
 
