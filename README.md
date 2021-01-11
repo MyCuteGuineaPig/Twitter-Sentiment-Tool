@@ -17,7 +17,7 @@ Above scirpt does the following steps:
 - activate virtual environment
 - start Django server on local computer
 
-Then open a browser, go to [127.0.0.1:8000/](http://127.0.0.1:8000/]
+Then open a browser, go to [127.0.0.1:8000/](http://127.0.0.1:8000/)
 
 ## Train Model 
 
